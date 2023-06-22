@@ -1,6 +1,4 @@
-.container {
-  padding: 0 2rem;
-}
+.container {}
 
 .main {
   min-height: 100vh;
@@ -10,6 +8,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.twitter {
+  margin-top: 5px;
 }
 
 .footer {
