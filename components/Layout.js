@@ -31,7 +31,7 @@ export default function Layout({ children, title, description, bgcolor }) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         <link rel="icon" href="/icons/logo.png" />
-        <title>{title || "FrenArt"}</title>
+        <title>{title || "FaucetDAO"}</title>
         <meta
           name="description"
           content="FrenArt - From Friendship Bracelet Holder to FrenArt DAO. From one Friendship bracelet to one FrenArt Governance NFT."
@@ -39,14 +39,8 @@ export default function Layout({ children, title, description, bgcolor }) {
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/icons/logo.png" />
-        <meta property="og:title" content={title || "FrenArt Website"} />
-        <meta
-          property="og:description"
-          content={
-            description ||
-            "FrenArt - From Friendship Bracelet Holder to FrenArt DAO. From one Friendship bracelet to one FrenArt Governance NFT."
-          }
-        />
+        <meta property="og:title" content={title || "FaucetDAO"} />
+        <meta property="og:description" content={description || "FaucetDAO."} />
         {/* <meta property="og:url" content="https://lxdao.io/" /> */}
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
@@ -79,7 +73,7 @@ export default function Layout({ children, title, description, bgcolor }) {
           //   backgroundImage: `url(${backgroundImage.src})`,
           //   backgroundPosition: "top",
           backgroundRepeat: "no-repeat",
-          backgroundColor: "#2673ab",
+          background: "linear-gradient(to bottom, #90ede8, transparent)",
           display: "flex",
           height: "100vh",
           justifyContent: "center",

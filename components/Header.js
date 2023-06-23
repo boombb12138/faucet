@@ -64,7 +64,7 @@ export default function Header() {
                 }}
                 style={{
                   width: "100%",
-                  backgroundColor: activeTab === 0 ? "blue" : "transparent",
+                  backgroundColor: activeTab === 0 ? "#ef7cb4" : "transparent",
                   color: activeTab === 0 ? "#fff" : "#666666",
                   textTransform: "capitalize",
                   textAlign: "left",
@@ -92,7 +92,7 @@ export default function Header() {
                 }}
                 style={{
                   width: "100%",
-                  backgroundColor: activeTab === 1 ? "blue" : "transparent",
+                  backgroundColor: activeTab === 1 ? "#ef7cb4" : "transparent",
                   color: activeTab === 1 ? "#fff" : "#666666",
                   textTransform: "capitalize",
                   textAlign: "left",
@@ -120,7 +120,7 @@ export default function Header() {
                 }}
                 style={{
                   width: "100%",
-                  backgroundColor: activeTab === 2 ? "blue" : "transparent",
+                  backgroundColor: activeTab === 2 ? "#ef7cb4" : "transparent",
                   color: activeTab === 2 ? "#fff" : "#666666",
                   textTransform: "capitalize",
                   textAlign: "left",
@@ -148,7 +148,7 @@ export default function Header() {
                 }}
                 style={{
                   width: "100%",
-                  backgroundColor: activeTab === 3 ? "blue" : "transparent",
+                  backgroundColor: activeTab === 3 ? "#ef7cb4" : "transparent",
                   color: activeTab === 3 ? "#fff" : "#666666",
                   textTransform: "capitalize",
                   textAlign: "left",
@@ -176,7 +176,7 @@ export default function Header() {
                 }}
                 style={{
                   width: "100%",
-                  backgroundColor: activeTab === 4 ? "blue" : "transparent",
+                  backgroundColor: activeTab === 4 ? "#ef7cb4" : "transparent",
                   color: activeTab === 4 ? "#fff" : "#666666",
                   textTransform: "capitalize",
                   textAlign: "left",
@@ -204,7 +204,7 @@ export default function Header() {
                 }}
                 style={{
                   width: "100%",
-                  backgroundColor: activeTab === 5 ? "blue" : "transparent",
+                  backgroundColor: activeTab === 5 ? "#ef7cb4" : "transparent",
                   color: activeTab === 5 ? "#fff" : "#666666",
                   textAlign: "left",
                   textTransform: "capitalize",
@@ -264,9 +264,9 @@ export default function Header() {
             <img src="/icon_contact/tuite.png" width="15px" height="15px" />
             <Link
               sx={{ marginLeft: "5px" }}
-              href="https://twitter.com/faucet_trade"
+              href="https://twitter.com/FaucetDAO1"
             >
-              @faucet.trade
+              @FaucetDAO1
             </Link>
           </Box>
           <Box

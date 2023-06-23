@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Box, Button, Typography, TextField } from "@mui/material";
 
 import styles from "../styles/Home.module.css";
+import Captcha from "./Captcha";
 
 export default function RightSection({ testnet }) {
   switch (testnet) {
@@ -62,10 +63,10 @@ export default function RightSection({ testnet }) {
           <Typography>
             <b>Step2.</b>Follow and tweet
           </Typography>
-          <a href="https://twitter.com/intent/user?screen_name=faucet_trade">
+          <a href="https://twitter.com/FaucetDAO1">
             <Box
               sx={{
-                backgroundColor: "#1b9cee",
+                backgroundColor: "#ef7cb4",
                 display: "flex",
                 borderRadius: "5px",
                 lineHeight: "2rem",
@@ -76,7 +77,7 @@ export default function RightSection({ testnet }) {
             >
               <Box
                 sx={{
-                  backgroundColor: "#1382cf",
+                  backgroundColor: "#ef7cb4",
                   borderRadius: "5px 0 0 5px",
                   width: "35px",
                   marginRight: "7%",
@@ -87,13 +88,13 @@ export default function RightSection({ testnet }) {
               >
                 <img src="/twitter.png" width="20px" height="20px" />
               </Box>
-              Follow @faucet_trade
+              Follow @FaucetDAO1
             </Box>
           </a>
           <a href="https://twitter.com/intent/tweet?text=">
             <Box
               sx={{
-                backgroundColor: "#1b9cee",
+                backgroundColor: "#ef7cb4",
                 display: "flex",
                 borderRadius: "5px",
                 lineHeight: "2rem",
@@ -105,7 +106,7 @@ export default function RightSection({ testnet }) {
             >
               <Box
                 sx={{
-                  backgroundColor: "#1382cf",
+                  backgroundColor: "#ef7cb4",
                   borderRadius: "5px 0 0 5px",
                   width: "35px",
                   // minWidth: "35px",
@@ -142,10 +143,14 @@ export default function RightSection({ testnet }) {
           <Typography>
             <b>Step4.</b>Solve captcha
           </Typography>
+          <Captcha />
         </Box>
 
         <hr />
-        <Button variant="contained" sx={{ width: "100%" }}>
+        <Button
+          variant="contained"
+          sx={{ width: "100%", background: "#ef7cb4" }}
+        >
           Receive tokens
         </Button>
       </Box>
