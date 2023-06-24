@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import React, { useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -14,8 +15,7 @@ const MyComponent = () => {
   };
 
   return (
-    <div>
-      <h1>reCAPTCHA验证示例</h1>
+    <Box sx={{ marginTop: "10px" }}>
       <ReCAPTCHA
         ref={recaptchaRef}
         // size="invisible"
@@ -23,8 +23,8 @@ const MyComponent = () => {
         onChange={onRecaptchaVerify}
       />
 
-      <button onClick={submitForm}>提交</button>
-    </div>
+      <button onClick={submitForm}>Submit</button>
+    </Box>
   );
 };
 
