@@ -281,6 +281,18 @@ export default function Header() {
               @faucet.trade
             </Link>
           </Box>
+          <Box
+            sx={{
+              marginTop: "5px",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <img src="/icon_contact/discord.png" width="15px" height="15px" />
+            <Link sx={{ marginLeft: "5px" }} href="https://t.me/faucet_trade">
+              @faucet.trade
+            </Link>
+          </Box>
         </Box>
       </Box>
       <RightSection testnet={path} />

@@ -22,8 +22,8 @@ const MyComponent = () => {
         sitekey="6LcyhMEmAAAAADQz87h6JYJiR3-bw6aTsKGtD9TC"
         onChange={onRecaptchaVerify}
       />
-      {/* onClick={submitForm} */}
-      <button>提交</button>
+
+      <button onClick={submitForm}>提交</button>
     </div>
   );
 };
