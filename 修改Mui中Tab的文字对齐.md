@@ -31,3 +31,8 @@
               />
 ```
 
+env中的base URL 为http不是https
+
+
+
+在发送代币类型请求的时候，API的headers需要新增contenttype

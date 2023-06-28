@@ -4,6 +4,8 @@ import Head from "next/head";
 import { Box, CssBaseline, Typography } from "@mui/material";
 
 import Header from "./Header";
+import Contact from "./Contact";
+import Footer from "./Footer";
 
 // eslint-disable-next-line react/prop-types
 export default function Layout({ children, title, description, bgcolor }) {
@@ -73,45 +75,40 @@ export default function Layout({ children, title, description, bgcolor }) {
           //   backgroundImage: `url(${backgroundImage.src})`,
           //   backgroundPosition: "top",
           backgroundRepeat: "no-repeat",
-          background: "linear-gradient(to bottom, #90ede8, transparent)",
           display: "flex",
           height: "100vh",
+          background: "linear-gradient(to bottom, #90ede8, transparent)",
           justifyContent: "center",
         }}
       >
         <React.StrictMode>
           <Box
             sx={{
+              width: "15vw",
+              maxWidth: "150px",
+              position: "absolute",
+              left: "10px",
+              top: "10px",
+            }}
+          >
+            <img src="/logo.png" width="100%" />
+          </Box>
+          <Box
+            sx={{
               display: "flex",
-
               justifyContent: "center",
               // alignItems: "center",
               width: "100%",
               position: "absolute",
-              top: "50%",
-              transform: "translateY(-50%)",
+              top: "s16%",
+              // transform: "translateY(-50%)",
               padding: "0 20%",
             }}
           >
             <Header />
             {/* <Box sx={{ flex: 1 }}>{children}</Box> */}
-            {/* <Box
-              sx={{
-                width: "50%",
-                position: "relative",
-                bottom: "10%",
-                color: "#666666",
-              }}
-            >
-              Attention
-              <Typography>
-                There is an increased demand for LINEA tokens. The faucet may
-                work with a delay. If anyone wants to buy tokens quickly and
-                without delay, check out your telegram channel for more
-                information
-              </Typography>
-            </Box> */}
           </Box>
+          <Footer />
         </React.StrictMode>
       </Box>
     </>

@@ -1,34 +1,62 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Box, Button, Typography, TextField } from "@mui/material";
+import { ethers } from "ethers";
 
 import styles from "../styles/Home.module.css";
 import Captcha from "./Captcha";
+import API from "../common/API";
 
-export default function RightSection({ testnet }) {
-  switch (testnet) {
-    case "goerli":
-      testnet = "Goerli ETH";
-      break;
-    case "linea":
-      testnet = "Linea ETH";
-      break;
-    case "sepolia":
-      testnet = "Sepolia ETH";
-      break;
-    case "bsc":
-      testnet = "BSC Testnet BNB";
-      break;
-    case "polygon":
-      testnet = "Polygon Mumbai MATIC";
-      break;
-    case "avalanche":
-      testnet = "Avalanche Fuji AVAX";
-      break;
+export default function RightSection({ testnet, id }) {
+  const [address, setAddress] = useState(" ");
+  const [isValid, setIsValid] = useState(" ");
 
-    default:
-      break;
+  const isValidEthAddress = (address) => {
+    try {
+      const validAddress = ethers.utils.getAddress(address);
+      console.log(validAddress, address);
+      return validAddress === address.toLowerCase();
+    } catch (error) {
+      return false;
+    }
+  };
+
+  const handleChange = (e) => {
+    setAddress(e.target.value);
+  };
+
+  useEffect(() => {
+    setIsValid(isValidEthAddress(address));
+  }, [address]);
+
+  let getTwitterContentQuery = `/jeecg-boot/faecut/getTwitterContent?`;
+  let params = [];
+  if (address) {
+    params.push("address=" + address);
   }
+  params.push("coinId=" + id);
+  getTwitterContentQuery += params.join("&");
+  console.log(getTwitterContentQuery);
+  const [twitterContent, setTwitterContent] = useState("");
+
+  async function getTwitterContent() {
+    try {
+      const response = await API.get(getTwitterContentQuery);
+      const records = response.data.result;
+      console.log(response.data.message, "response");
+      setTwitterContent(response.data.message);
+      // let tempList = [];
+      // records.forEach((record) => {
+      //   tempList.push(record);
+      // });
+
+      // setCoins([...tempList]);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  getTwitterContent();
+
   return (
     <>
       <Box
@@ -39,6 +67,7 @@ export default function RightSection({ testnet }) {
           borderRadius: "10px",
           marginLeft: "20px",
           boxShadow: "2px 2px 4px rgba(0,0,0,0.5)",
+          height: "100%",
         }}
       >
         <Typography sx={{ fontWeight: "600" }}>{testnet} Faucet</Typography>
@@ -56,7 +85,12 @@ export default function RightSection({ testnet }) {
             }}
             id="outlined-basic"
             placeholder="0x...."
+            value={address}
+            onChange={handleChange}
+            Validate
           />
+          {twitterContent}
+          {/* {!isValid ? "Your address is invalid" : null} */}
         </Box>
 
         <Box sx={{ marginTop: "20px" }}>
