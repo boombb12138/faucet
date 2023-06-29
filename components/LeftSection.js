@@ -125,13 +125,19 @@ export default function LeftSection() {
                           event.stopPropagation();
                           handleTabClick(index, coin);
                         }}
-                        style={{
+                        sx={{
                           width: "100%",
                           backgroundColor:
                             activeTab === index ? "#ef7cb4" : "transparent",
                           color: activeTab === index ? "#fff" : "#666666",
                           textTransform: "capitalize",
                           textAlign: "left",
+                          "& .MuiButtonBase-root": {
+                            maxWidth: "100% !important",
+                          },
+                          "& .Mui-selected": {
+                            maxWidth: "100% !important",
+                          },
                         }}
                         value={index}
                       />

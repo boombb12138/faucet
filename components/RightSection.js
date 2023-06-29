@@ -69,8 +69,8 @@ export default function RightSection({ testnet, id }) {
           borderRadius: "10px",
           marginLeft: "20px",
           boxShadow: "2px 2px 4px rgba(0,0,0,0.5)",
-          height: "65vh",
-          minHeight: "550px",
+          // height: "65vh",
+          // minHeight: "550px",
         }}
       >
         <Typography sx={{ fontWeight: "600" }}>{testnet} Faucet</Typography>
