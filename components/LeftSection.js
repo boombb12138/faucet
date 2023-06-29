@@ -57,21 +57,22 @@ export default function LeftSection() {
           flexDirection: "row",
           maxWidth: "50%",
           transform: "translateX(50%)",
-          maxheight: "70vh",
+          // height: "60vh",
           // marginTop: "10%",
         }}
       >
         <Box
           sx={{
-            flex: 1,
+            flex: 0.5,
           }}
         >
-          <Box>
+          <Box sx={{ display: "flex", flexDirection: "column" }}>
             <Box
               sx={{
                 background: "#fff",
                 borderRadius: "10px",
                 padding: "10px 0px",
+                flex: 1,
               }}
             >
               <Typography sx={{ fontWeight: "700", padding: "10px 10px" }}>
@@ -136,7 +137,6 @@ export default function LeftSection() {
  */}
               </Box>
             </Box>
-
             <Buy />
           </Box>
 

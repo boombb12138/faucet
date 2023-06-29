@@ -61,18 +61,21 @@ export default function RightSection({ testnet, id }) {
     <>
       <Box
         sx={{
+          display: "flex",
+          flexDirection: "column",
           flex: 1,
           padding: "20px 10px",
           background: "#fff",
           borderRadius: "10px",
           marginLeft: "20px",
           boxShadow: "2px 2px 4px rgba(0,0,0,0.5)",
-          maxheight: "70vh",
+          height: "65vh",
+          minHeight: "550px",
         }}
       >
         <Typography sx={{ fontWeight: "600" }}>{testnet} Faucet</Typography>
 
-        <Box sx={{ marginTop: "20px" }}>
+        <Box sx={{ marginTop: "10px", flex: "1" }}>
           <Typography>
             <b>Step1.</b>Put your wallet address
           </Typography>
@@ -93,7 +96,7 @@ export default function RightSection({ testnet, id }) {
           {/* {!isValid ? "Your address is invalid" : null} */}
         </Box>
 
-        <Box sx={{ marginTop: "20px" }}>
+        <Box sx={{ marginTop: "10px", flex: "1" }}>
           <Typography>
             <b>Step2.</b>Follow and tweet
           </Typography>
@@ -157,7 +160,7 @@ export default function RightSection({ testnet, id }) {
           </a>
         </Box>
 
-        <Box sx={{ marginTop: "20px" }}>
+        <Box sx={{ marginTop: "10px", flex: "1" }}>
           <Typography>
             <b>Step3.</b>Put your tweet URL
           </Typography>
@@ -173,7 +176,7 @@ export default function RightSection({ testnet, id }) {
           />
         </Box>
 
-        <Box sx={{ marginTop: "20px" }}>
+        <Box sx={{ marginTop: "10px", flex: "1" }}>
           <Typography>
             <b>Step4.</b>Solve captcha
           </Typography>
