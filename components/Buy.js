@@ -12,77 +12,59 @@ export default function Buy() {
           borderRadius: "10px",
           padding: "10px",
           marginTop: "10px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
       >
-        <Typography variant="h6" sx={{ fontWeight: "600" }} gutterBottom>
-          You can buy Linea ETH
-        </Typography>
-        <Typography> easily without headache two options:</Typography>
-        {/*  */}
-        {/* <Box
-          sx={{
-            width: "10px",
-            height: "10px",
-            borderRadius: "50%",
-            backgroundColor: "red",
-            display: "inline-block",
-            position: "relative",
-            marginRight: "10px",
-          }}
-        >
-          <span
-            sx={{
-              color: "white",
-              fontSize: "24px",
-              fontWeight: "bold",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            42
-          </span>
+        <Box>
+          <Typography variant="h6" sx={{ fontWeight: "600" }}>
+            You can buy Linea ETH
+          </Typography>
+          <Typography> easily without headache two options:</Typography>
         </Box>
-        <p sx={{ display: "inline-block", verticalAslign: "middle" }}>
-          regular transfer: 1ETH = $0.25
-        </p> */}
-        {/*  */}
-        <Box
-          sx={{
-            display: "inline-block",
-            width: "20px",
-            height: "20px",
-            borderRadius: "50%",
-            backgroundColor: "#000",
-            color: "#eee",
-            alignItems: "center",
-            justifyContent: "center",
-            fontWeight: "400",
-            position: "relative",
-          }}
-        >
+
+        <Box sx={{ padding: "10px 0" }}>
           <span
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+            style={{
+              backgroundColor: "#000",
+              borderRadius: "50%",
+              color: "#eee",
+              display: "inline-block",
+              width: "20px",
+              height: "20px",
+              textAlign: "center",
+              marginRight: "5px",
             }}
           >
             1
           </span>
+          <b>regular transfer:1ETH =$0.25</b>
+          <br />
+          <span
+            style={{
+              backgroundColor: "#000",
+              borderRadius: "50%",
+              color: "#eee",
+              display: "inline-block",
+              width: "20px",
+              height: "20px",
+              textAlign: "center",
+              marginRight: "5px",
+            }}
+          >
+            2
+          </span>
+          <b>NON-SYBIL solutions:1 ETH = $1</b>
         </Box>
-        <Typography
-          sx={{
-            display: "inline-block",
-            fontWeight: "700",
-            verticalAlign: "middle",
-          }}
-        >
-          regular transfer:1ETH =$0.25
-        </Typography>
-        <br /> NON-SYBIL solutions:1 ETH = $1
+
         <Button
-          sx={{ fontWeight: "700", color: "#000", backgroundColor: "#ffc107" }}
+          sx={{
+            fontWeight: "700",
+            color: "#000",
+            backgroundColor: "#ffc107",
+            alignSelf: "center",
+          }}
         >
           Buy now
         </Button>
@@ -92,11 +74,11 @@ export default function Buy() {
           sx={{
             marginTop: "10px",
             width: "100%",
-            borderRadius: "10px",
+            borderRadius: "10px 10px",
             overflow: "hidden",
           }}
         >
-          <img src="/banner.png" width="100%" />
+          <img src="/banner.png" width="100%" height="auto" />
         </Box>
       </a>
     </>

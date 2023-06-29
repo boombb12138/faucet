@@ -3,8 +3,8 @@ import React from "react";
 import Head from "next/head";
 import { Box, CssBaseline, Typography } from "@mui/material";
 
+import LeftSection from "./LeftSection";
 import Header from "./Header";
-import Contact from "./Contact";
 import Footer from "./Footer";
 
 // eslint-disable-next-line react/prop-types
@@ -70,29 +70,20 @@ export default function Layout({ children, title, description, bgcolor }) {
       </Head>
 
       <CssBaseline />
-      <Box
-        sx={{
-          //   backgroundImage: `url(${backgroundImage.src})`,
-          //   backgroundPosition: "top",
-          backgroundRepeat: "no-repeat",
-          display: "flex",
-          height: "100vh",
-          background: "linear-gradient(to bottom, #90ede8, transparent)",
-          justifyContent: "center",
-        }}
-      >
-        <React.StrictMode>
-          <Box
-            sx={{
-              width: "15vw",
-              maxWidth: "150px",
-              position: "absolute",
-              left: "10px",
-              top: "10px",
-            }}
-          >
-            <img src="/logo.png" width="100%" />
-          </Box>
+
+      <React.StrictMode>
+        <Box
+          sx={{
+            //   backgroundImage: `url(${backgroundImage.src})`,
+            //   backgroundPosition: "top",
+            backgroundRepeat: "no-repeat",
+            display: "flex",
+            height: "100vh",
+            background: "linear-gradient(to bottom, #90ede8, transparent)",
+            justifyContent: "center",
+          }}
+        >
+          <Header />
           <Box
             sx={{
               display: "flex",
@@ -105,12 +96,12 @@ export default function Layout({ children, title, description, bgcolor }) {
               padding: "0 20%",
             }}
           >
-            <Header />
+            <LeftSection />
             {/* <Box sx={{ flex: 1 }}>{children}</Box> */}
           </Box>
           <Footer />
-        </React.StrictMode>
-      </Box>
+        </Box>
+      </React.StrictMode>
     </>
   );
 }

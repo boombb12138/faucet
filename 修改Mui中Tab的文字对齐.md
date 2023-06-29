@@ -36,3 +36,28 @@ env中的base URL 为http不是https
 
 
 在发送代币类型请求的时候，API的headers需要新增contenttype
+
+
+
+![Snipaste_2023-06-29_14-40-11](E:\工作\Web3\faucet-next\Snipaste_2023-06-29_14-40-11.png)
+
+代码实现
+
+```html
+  <span
+          style={{
+            backgroundColor: "#000",
+            borderRadius: "50%",
+            color: "#eee",
+            display: "inline-block",
+            width: "20px",
+            height: "20px",
+            textAlign: "center",
+            marginRight: "5px",
+          }}
+        >
+          1
+        </span>
+        <b>regular transfer:1ETH =$0.25</b>
+```
+

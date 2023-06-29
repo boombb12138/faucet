@@ -30,7 +30,9 @@ export default function Contact() {
 
   return (
     <>
-      <Box sx={{ position: "absolute", bottom: "5%" }}>
+      <Box
+        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      >
         <Link sx={{ marginLeft: "5px" }} href={contact[1]}>
           <img src="/icon_contact/email.png" width="15px" height="15px" />
         </Link>
