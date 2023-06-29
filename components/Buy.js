@@ -23,7 +23,7 @@ export default function Buy() {
           }}
         >
           <Box>
-            <Typography variant="h6" sx={{ fontWeight: "600" }}>
+            <Typography sx={{ fontWeight: "600", fontSize: "20px" }}>
               You can buy Linea ETH
             </Typography>
             <Typography> easily without headache two options:</Typography>
@@ -44,7 +44,7 @@ export default function Buy() {
             >
               1
             </span>
-            <b>regular transfer:1ETH =$0.25</b>
+            <b>Regular transfer:1ETH =$0.25</b>
             <br />
             <span
               style={{
@@ -69,6 +69,7 @@ export default function Buy() {
               color: "#000",
               backgroundColor: "#ffc107",
               alignSelf: "center",
+              width: "90%",
             }}
           >
             Buy now

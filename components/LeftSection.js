@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import RightSection from "./RightSection";
 import Buy from "./Buy";
 import API from "../common/API";
+import { Circle } from "@mui/icons-material";
 
 export default function LeftSection() {
   const router = useRouter();
@@ -63,7 +64,7 @@ export default function LeftSection() {
       >
         <Box
           sx={{
-            flex: 0.5,
+            flex: 0.4,
           }}
         >
           <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -75,7 +76,12 @@ export default function LeftSection() {
                 flex: 1,
               }}
             >
-              <Typography sx={{ fontWeight: "700", padding: "10px 10px" }}>
+              <Typography
+                sx={{
+                  fontWeight: "700",
+                  padding: "5px 10px",
+                }}
+              >
                 Available tokens{" "}
               </Typography>
 
@@ -87,21 +93,33 @@ export default function LeftSection() {
                       <Tab
                         key={coin.id}
                         label={
-                          <Typography
-                            sx={{
-                              cursor: "pointer",
-                              "&.MuiTypography-root": {
+                          <>
+                            <Typography
+                              sx={{
+                                position: "relative",
+                                cursor: "pointer",
+                                "&.MuiTypography-root": {
+                                  position: "absolute",
+                                  left: "16px",
+                                },
+                              }}
+                            >
+                              {coin.code}
+                              <span style={{ color: "#13c1a1" }}>
+                                {" "}
+                                {coin.main}
+                              </span>
+                            </Typography>
+                            <Circle
+                              sx={{
+                                color: "#13c1a1",
+                                width: "10px",
+                                height: "10px",
+                                right: "20px",
                                 position: "absolute",
-                                left: "16px",
-                              },
-                            }}
-                          >
-                            {coin.code}
-                            <span style={{ color: "#13c1a1" }}>
-                              {" "}
-                              {coin.main}
-                            </span>
-                          </Typography>
+                              }}
+                            />
+                          </>
                         }
                         onClick={(event) => {
                           event.stopPropagation();
