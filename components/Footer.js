@@ -7,7 +7,6 @@ import Contact from "./Contact";
 export default function Footer() {
   return (
     <>
-      {/* sx={{ position: "absolute", bottom: "5%" }} */}
       <Box
         sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
       >

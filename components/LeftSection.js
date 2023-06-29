@@ -20,6 +20,7 @@ export default function LeftSection() {
       try {
         const response = await API.get(getAllCoinTypesQuery);
         const records = response.data.result;
+        console.log(records, "records1702");
 
         let tempList = [];
         records.forEach((record) => {
@@ -50,7 +51,16 @@ export default function LeftSection() {
 
   return (
     <>
-      <Box sx={{ padding: "0 20%", display: "flex", flexDirection: "row" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          maxWidth: "50%",
+          transform: "translateX(50%)",
+          maxheight: "70vh",
+          // marginTop: "10%",
+        }}
+      >
         <Box
           sx={{
             flex: 1,

@@ -10,12 +10,12 @@ export default function Header() {
         sx={{
           width: "15vw",
           maxWidth: "150px",
-          position: "absolute",
-          left: "10px",
-          top: "10px",
+          //   position: "absolute",
+          //   left: "10px",
+          //   top: "10px",
         }}
       >
-        <img src="/logo.png" width="100%" />
+        <img src="/logo.png" width="100%" height="auto" />
       </Box>
     </>
   );
