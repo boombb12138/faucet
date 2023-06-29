@@ -50,61 +50,66 @@ export default function LeftSection() {
 
   return (
     <>
-      <Box
-        sx={{
-          flex: 0.5,
-        }}
-      >
+      <Box sx={{ padding: "0 20%", display: "flex", flexDirection: "row" }}>
         <Box
           sx={{
-            background: "#fff",
-            borderRadius: "10px",
-            padding: "10px 0px",
+            flex: 1,
           }}
         >
-          <Typography sx={{ fontWeight: "700", padding: "10px 10px" }}>
-            Available tokens{" "}
-          </Typography>
-
-          <hr />
           <Box>
-            <Tabs orientation="vertical" value={activeTab}>
-              {coins.map((coin, index) => {
-                return (
-                  <Tab
-                    key={coin.id}
-                    label={
-                      <Typography
-                        sx={{
-                          cursor: "pointer",
-                          "&.MuiTypography-root": {
-                            position: "absolute",
-                            left: "16px",
-                          },
+            <Box
+              sx={{
+                background: "#fff",
+                borderRadius: "10px",
+                padding: "10px 0px",
+              }}
+            >
+              <Typography sx={{ fontWeight: "700", padding: "10px 10px" }}>
+                Available tokens{" "}
+              </Typography>
+
+              <hr />
+              <Box>
+                <Tabs orientation="vertical" value={activeTab}>
+                  {coins.map((coin, index) => {
+                    return (
+                      <Tab
+                        key={coin.id}
+                        label={
+                          <Typography
+                            sx={{
+                              cursor: "pointer",
+                              "&.MuiTypography-root": {
+                                position: "absolute",
+                                left: "16px",
+                              },
+                            }}
+                          >
+                            {coin.code}
+                            <span style={{ color: "#13c1a1" }}>
+                              {" "}
+                              {coin.main}
+                            </span>
+                          </Typography>
+                        }
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          handleTabClick(index, coin);
                         }}
-                      >
-                        {coin.code}
-                        <span style={{ color: "#13c1a1" }}> {coin.main}</span>
-                      </Typography>
-                    }
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      handleTabClick(index, coin);
-                    }}
-                    style={{
-                      width: "100%",
-                      backgroundColor:
-                        activeTab === index ? "#ef7cb4" : "transparent",
-                      color: activeTab === index ? "#fff" : "#666666",
-                      textTransform: "capitalize",
-                      textAlign: "left",
-                    }}
-                    value={index}
-                  />
-                );
-              })}
-            </Tabs>
-            {/* 
+                        style={{
+                          width: "100%",
+                          backgroundColor:
+                            activeTab === index ? "#ef7cb4" : "transparent",
+                          color: activeTab === index ? "#fff" : "#666666",
+                          textTransform: "capitalize",
+                          textAlign: "left",
+                        }}
+                        value={index}
+                      />
+                    );
+                  })}
+                </Tabs>
+                {/* 
             <Typography
               sx={{
                 cursor: "pointer",
@@ -119,12 +124,13 @@ export default function LeftSection() {
               <span style={{ color: "#86c2ff" }}> ETH</span>
             </Typography>
  */}
+              </Box>
+            </Box>
+
+            <Buy />
           </Box>
-        </Box>
 
-        <Buy />
-
-        {/* <Box
+          {/* <Box
           sx={{
             marginTop: "20px",
             padding: "20px 10px",
@@ -133,14 +139,15 @@ export default function LeftSection() {
           }}
         >
           Need more tokens?Take a look at our telegram post{" "} */}
-        {/* //todo  change link?*/}
-        {/* <a href="https://t.me/faucet_trade/11" target="_blank">
+          {/* //todo  change link?*/}
+          {/* <a href="https://t.me/faucet_trade/11" target="_blank">
             here
           </a>
           <Contact />
         </Box> */}
+        </Box>
+        <RightSection testnet={path} id={id} />
       </Box>
-      <RightSection testnet={path} id={id} />
     </>
   );
 }

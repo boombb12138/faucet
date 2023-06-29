@@ -81,25 +81,36 @@ export default function Layout({ children, title, description, bgcolor }) {
             height: "100vh",
             background: "linear-gradient(to bottom, #90ede8, transparent)",
             justifyContent: "center",
+            position: "relative",
+            flexDirection: "column",
           }}
         >
           <Header />
-          <Box
+          {/* <Box
             sx={{
               display: "flex",
               justifyContent: "center",
-              // alignItems: "center",
               width: "100%",
               position: "absolute",
-              top: "s16%",
-              // transform: "translateY(-50%)",
+              top: "16%",
               padding: "0 20%",
             }}
-          >
-            <LeftSection />
-            {/* <Box sx={{ flex: 1 }}>{children}</Box> */}
-          </Box>
+          > */}
+          <LeftSection />
+          {/* <Box sx={{ flex: 1 }}>{children}</Box> */}
+          {/* </Box> */}
+          {/* <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              width: "100%",
+              position: "absolute",
+              bottom: "15%",
+              padding: "0 20%",
+            }}
+          > */}
           <Footer />
+          {/* </Box> */}
         </Box>
       </React.StrictMode>
     </>

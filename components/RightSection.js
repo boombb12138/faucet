@@ -67,7 +67,7 @@ export default function RightSection({ testnet, id }) {
           borderRadius: "10px",
           marginLeft: "20px",
           boxShadow: "2px 2px 4px rgba(0,0,0,0.5)",
-          height: "100%",
+          // height: "100%",
         }}
       >
         <Typography sx={{ fontWeight: "600" }}>{testnet} Faucet</Typography>
@@ -89,7 +89,7 @@ export default function RightSection({ testnet, id }) {
             onChange={handleChange}
             Validate
           />
-          {twitterContent}
+          {/* {twitterContent} */}
           {/* {!isValid ? "Your address is invalid" : null} */}
         </Box>
 

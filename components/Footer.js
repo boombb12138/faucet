@@ -7,10 +7,12 @@ import Contact from "./Contact";
 export default function Footer() {
   return (
     <>
-      <Box sx={{ position: "absolute", bottom: "5%" }}>
+      {/* sx={{ position: "absolute", bottom: "5%" }} */}
+      <Box
+        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      >
         {/* <Typography variant="h4"> */}
         <b style={{ color: "rgb(40, 198, 182,0.7)", fontSize: "24px" }}>
-          {" "}
           Buy multiple test coins at
           <a
             href="https://www.faucetdao.shop/#/swap"
@@ -21,8 +23,8 @@ export default function Footer() {
           </a>
         </b>
         {/* </Typography> */}
-        <Contact />
       </Box>
+      <Contact />
     </>
   );
 }
