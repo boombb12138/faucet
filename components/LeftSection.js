@@ -57,6 +57,7 @@ export default function LeftSection() {
           display: "flex",
           flexDirection: "row",
           maxWidth: "50%",
+          scale: "0.8",
           transform: "translateX(50%)",
           // height: "60vh",
           // marginTop: "10%",
@@ -65,6 +66,7 @@ export default function LeftSection() {
         <Box
           sx={{
             flex: 0.4,
+            minWidth: "250px",
           }}
         >
           <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -87,7 +89,15 @@ export default function LeftSection() {
 
               <hr />
               <Box>
-                <Tabs orientation="vertical" value={activeTab}>
+                <Tabs
+                  orientation="vertical"
+                  value={activeTab}
+                  sx={{
+                    "& .MuiTabs-indicator": {
+                      width: "0 !important",
+                    },
+                  }}
+                >
                   {coins.map((coin, index) => {
                     return (
                       <Tab

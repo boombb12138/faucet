@@ -31,18 +31,23 @@ export default function Contact() {
   return (
     <>
       <Box
-        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+        sx={{
+          marginTop: "10px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
       >
-        <Link sx={{ marginLeft: "5px" }} href={contact[1]}>
-          <img src="/icon_contact/email.png" width="15px" height="15px" />
+        <Link sx={{ marginLeft: "15px" }} href={contact[1]}>
+          <img src="/icon_contact/email.png" width="25px" height="25px" />
         </Link>
 
-        <Link sx={{ marginLeft: "5px" }} href={contact[3]}>
-          <img src="/icon_contact/tuite.png" width="15px" height="15px" />
+        <Link sx={{ marginLeft: "15px" }} href={contact[3]}>
+          <img src="/icon_contact/tuite.png" width="25px" height="25px" />
         </Link>
 
-        <Link sx={{ marginLeft: "5px" }} href={contact[0]}>
-          <img src="/icon_contact/discord.png" width="15px" height="15px" />
+        <Link sx={{ marginLeft: "15px" }} href={contact[0]}>
+          <img src="/icon_contact/discord.png" width="25px" height="25px" />
         </Link>
       </Box>
     </>

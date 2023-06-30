@@ -8,16 +8,20 @@ export default function Footer() {
   return (
     <>
       <Box
-        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop: "30px",
+        }}
       >
         {/* <Typography variant="h4"> */}
-        <b style={{ color: "rgb(40, 198, 182,0.7)", fontSize: "24px" }}>
-          Buy multiple test coins at
+        <b style={{ color: "#ef7cb4", fontSize: "30px" }}>
+          Buy multiple test coins at{" "}
           <a
             href="https://www.faucetdao.shop/#/swap"
-            style={{ color: "rgb(50, 198, 190)" }}
+            style={{ color: "#ef7cb4", textDecoration: "underline" }}
           >
-            {" "}
             www.faucetdao.shop.
           </a>
         </b>

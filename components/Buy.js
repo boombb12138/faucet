@@ -24,12 +24,17 @@ export default function Buy() {
         >
           <Box>
             <Typography sx={{ fontWeight: "600", fontSize: "20px" }}>
-              You can buy Linea ETH
+              You can buy test coins on{" "}
+              <a
+                href="https://www.faucetdao.shop/#/swap"
+                style={{ textDecoration: "underline", color: "#000" }}
+              >
+                faucetdao.shop
+              </a>
             </Typography>
-            <Typography> easily without headache two options:</Typography>
           </Box>
 
-          <Box sx={{ padding: "10px 0" }}>
+          {/* <Box sx={{ padding: "10px 0" }}>
             <span
               style={{
                 backgroundColor: "#000",
@@ -61,7 +66,7 @@ export default function Buy() {
               2
             </span>
             <b>NON-SYBIL solutions:1 ETH = $1</b>
-          </Box>
+          </Box> */}
 
           <Button
             sx={{

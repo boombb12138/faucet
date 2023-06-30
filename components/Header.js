@@ -1,22 +1,22 @@
 /* eslint-disable no-undef */
 import React from "react";
 
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 
 export default function Header() {
   return (
     <>
-      <Box
+      <Grid
         sx={{
-          width: "15vw",
+          width: "150px",
           maxWidth: "150px",
           position: "absolute",
-          left: "10px",
-          top: "10px",
+          left: "1rem",
+          top: "1rem",
         }}
       >
         <img src="/logo.png" width="100%" height="auto" />
-      </Box>
+      </Grid>
     </>
   );
 }

@@ -61,21 +61,24 @@ export default function RightSection({ testnet, id }) {
     <>
       <Box
         sx={{
-          display: "flex",
+          // display: "flex",
           flexDirection: "column",
           flex: 1,
           padding: "20px 10px",
           background: "#fff",
           borderRadius: "10px",
           marginLeft: "20px",
+          // scale: "0.8",
           boxShadow: "2px 2px 4px rgba(0,0,0,0.5)",
           // height: "65vh",
           // minHeight: "550px",
         }}
       >
-        <Typography sx={{ fontWeight: "600" }}>{testnet} Faucet</Typography>
+        <Typography sx={{ fontWeight: "600", fontSize: "24px" }}>
+          {testnet} Faucet
+        </Typography>
 
-        <Box sx={{ marginTop: "10px", flex: "1" }}>
+        <Box sx={{ marginTop: "30px", flex: "1" }}>
           <Typography>
             <b>Step1.</b>Put your wallet address
           </Typography>
