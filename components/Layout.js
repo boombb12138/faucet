@@ -90,17 +90,12 @@ export default function Layout({ children, title, description, bgcolor }) {
           <Header />
           {/* <Box
             sx={{
-              display: "flex",
-              justifyContent: "center",
-              width: "100%",
-              position: "absolute",
-              top: "16%",
-              padding: "0 20%",
+              height:""
             }}
           > */}
           <LeftSection />
           {/* <Box sx={{ flex: 1 }}>{children}</Box> */}
-          {/* </Box> */}
+          {/* </Box>  */}
           {/* <Box
             sx={{
               display: "flex",

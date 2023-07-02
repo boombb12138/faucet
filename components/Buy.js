@@ -20,10 +20,13 @@ export default function Buy() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <Box>
-            <Typography sx={{ fontWeight: "600", fontSize: "20px" }}>
+            <Typography
+              sx={{ fontWeight: "600", fontSize: "20px", textAlign: "center" }}
+            >
               You can buy test coins at{" "}
               <a
                 href="https://www.faucetdao.shop/#/swap"
@@ -67,18 +70,25 @@ export default function Buy() {
             </span>
             <b>NON-SYBIL solutions:1 ETH = $1</b>
           </Box> */}
-
-          <Button
-            sx={{
-              fontWeight: "700",
-              color: "#000",
-              backgroundColor: "#ffc107",
+          <a
+            href="https://www.faucetdao.shop/#/swap"
+            style={{
               alignSelf: "center",
-              width: "90%",
+              width: "100%",
             }}
           >
-            Buy now
-          </Button>
+            <Button
+              sx={{
+                fontWeight: "700",
+                color: "#000",
+                backgroundColor: "#ffc107",
+                alignSelf: "center",
+                width: "100%",
+              }}
+            >
+              Buy now
+            </Button>
+          </a>
         </Box>
         <a href="https://cnouyi.expert/join/43cm-7682104">
           <Box

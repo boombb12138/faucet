@@ -53,109 +53,118 @@ export default function LeftSection() {
   return (
     <>
       <Box
+        width={{ lg: "800px", sm: "auto", xs: "380px" }}
         sx={{
-          display: "flex",
-          flexDirection: "row",
-          // maxWidth: "60%",
-          scale: "0.6",
-          // transform: "translateX(50%)",
-          // height: "60vh",
-          // marginTop: "10%",
+          display: "grid",
+          gap: 2,
+          gridTemplateColumns: {
+            xs: "1fr",
+            sm: "1fr 2fr auto",
+          },
           marginX: "auto",
         }}
       >
+        {/* <Box
+          sx={
+            {
+              // flex: 0.3,
+              // minWidth: "250px",
+            }
+          }
+        > */}
         <Box
           sx={{
-            flex: 0.3,
-            // minWidth: "250px",
+            display: "flex",
+            flexDirection: "column",
           }}
         >
-          <Box sx={{ display: "flex", flexDirection: "column" }}>
-            <Box
+          <Box
+            sx={{
+              background: "#fff",
+              borderRadius: "10px",
+              padding: "10px 0px",
+              flex: 1,
+            }}
+          >
+            <Typography
               sx={{
-                background: "#fff",
-                borderRadius: "10px",
-                padding: "10px 0px",
-                flex: 1,
+                fontWeight: "700",
+                padding: "5px 10px",
               }}
             >
-              <Typography
+              Available tokens{" "}
+            </Typography>
+
+            <hr />
+            <Box>
+              <Tabs
+                orientation="vertical"
+                value={activeTab}
                 sx={{
-                  fontWeight: "700",
-                  padding: "5px 10px",
+                  "& .MuiTabs-indicator": {
+                    width: "0 !important",
+                  },
                 }}
               >
-                Available tokens{" "}
-              </Typography>
-
-              <hr />
-              <Box>
-                <Tabs
-                  orientation="vertical"
-                  value={activeTab}
-                  sx={{
-                    "& .MuiTabs-indicator": {
-                      width: "0 !important",
-                    },
-                  }}
-                >
-                  {coins.map((coin, index) => {
-                    return (
-                      <Tab
-                        key={coin.id}
-                        label={
-                          <>
-                            <Typography
-                              sx={{
-                                position: "relative",
-                                cursor: "pointer",
-                                "&.MuiTypography-root": {
-                                  position: "absolute",
-                                  left: "16px",
-                                },
-                              }}
-                            >
-                              {coin.code}
-                              <span style={{ color: "#13c1a1" }}>
-                                {" "}
-                                {coin.main}
-                              </span>
-                            </Typography>
-                            <Circle
-                              sx={{
-                                color: "#13c1a1",
-                                width: "10px",
-                                height: "10px",
-                                right: "20px",
+                {coins.map((coin, index) => {
+                  return (
+                    <Tab
+                      key={coin.id}
+                      label={
+                        <>
+                          <Typography
+                            sx={{
+                              position: "relative",
+                              cursor: "pointer",
+                              "&.MuiTypography-root": {
                                 position: "absolute",
-                              }}
-                            />
-                          </>
-                        }
-                        onClick={(event) => {
-                          event.stopPropagation();
-                          handleTabClick(index, coin);
-                        }}
-                        sx={{
-                          width: "100%",
-                          backgroundColor:
-                            activeTab === index ? "#ef7cb4" : "transparent",
-                          color: activeTab === index ? "#fff" : "#666666",
-                          textTransform: "capitalize",
-                          textAlign: "left",
-                          "& .MuiButtonBase-root": {
-                            maxWidth: "100% !important",
-                          },
-                          "& .Mui-selected": {
-                            maxWidth: "100% !important",
-                          },
-                        }}
-                        value={index}
-                      />
-                    );
-                  })}
-                </Tabs>
-                {/* 
+                                fontSize: "12px",
+                                left: "16px",
+                                height: "line-height",
+                              },
+                            }}
+                          >
+                            {coin.code}
+                            <span style={{ color: "#13c1a1" }}>
+                              {" "}
+                              {coin.main}
+                            </span>
+                          </Typography>
+                          <Circle
+                            sx={{
+                              color: "#13c1a1",
+                              width: "10px",
+                              height: "10px",
+                              right: "20px",
+                              position: "absolute",
+                            }}
+                          />
+                        </>
+                      }
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        handleTabClick(index, coin);
+                      }}
+                      sx={{
+                        width: "100%",
+                        backgroundColor:
+                          activeTab === index ? "#ef7cb4" : "transparent",
+                        color: activeTab === index ? "#fff" : "#666666",
+                        textTransform: "capitalize",
+                        textAlign: "left",
+                        "& .MuiButtonBase-root": {
+                          maxWidth: "100% !important",
+                        },
+                        "& .Mui-selected": {
+                          maxWidth: "100% !important",
+                        },
+                      }}
+                      value={index}
+                    />
+                  );
+                })}
+              </Tabs>
+              {/* 
             <Typography
               sx={{
                 cursor: "pointer",
@@ -170,12 +179,12 @@ export default function LeftSection() {
               <span style={{ color: "#86c2ff" }}> ETH</span>
             </Typography>
  */}
-              </Box>
             </Box>
-            <Buy />
           </Box>
+          <Buy />
+        </Box>
 
-          {/* <Box
+        {/* <Box
           sx={{
             marginTop: "20px",
             padding: "20px 10px",
@@ -184,13 +193,13 @@ export default function LeftSection() {
           }}
         >
           Need more tokens?Take a look at our telegram post{" "} */}
-          {/* //todo  change link?*/}
-          {/* <a href="https://t.me/faucet_trade/11" target="_blank">
+        {/* //todo  change link?*/}
+        {/* <a href="https://t.me/faucet_trade/11" target="_blank">
             here
           </a>
           <Contact />
         </Box> */}
-        </Box>
+        {/* </Box> */}
         <RightSection testnet={path} id={id} />
       </Box>
     </>
