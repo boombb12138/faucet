@@ -4,10 +4,20 @@ import ReCAPTCHA from "react-google-recaptcha";
 
 const MyComponent = () => {
   const recaptchaRef = useRef(null);
+  let checkRecaptcha = `/jeecg-boot/faecut/checkRecaptcha?`;
 
-  const onRecaptchaVerify = (response) => {
+  const onRecaptchaVerify = async (response) => {
     console.log("reCAPTCHA响应：", response);
     // 在这里执行验证通过后的操作
+    // /jeecg-boot/faecut/checkRecaptcha
+
+    checkRecaptcha += response;
+    try {
+      const response = await API.post(checkRecaptcha);
+      const records = response.data.result;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const submitForm = () => {
@@ -20,10 +30,10 @@ const MyComponent = () => {
         ref={recaptchaRef}
         // size="invisible"
         sitekey="6LcyhMEmAAAAADQz87h6JYJiR3-bw6aTsKGtD9TC"
-        onChange={onRecaptchaVerify}
+        onChange={onRecaptchaVerify()}
       />
 
-      <button onClick={submitForm}>Submit</button>
+      {/* <button onClick={submitForm}>Submit</button> */}
     </Box>
   );
 };

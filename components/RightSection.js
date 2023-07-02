@@ -6,10 +6,14 @@ import { ethers } from "ethers";
 import styles from "../styles/Home.module.css";
 import Captcha from "./Captcha";
 import API from "../common/API";
+import Debounce from "../utils/Debounce";
 
 export default function RightSection({ testnet, id }) {
   const [address, setAddress] = useState(" ");
   const [isValid, setIsValid] = useState(" ");
+  const [tweetURL, setTwitterURL] = useState("");
+  const [validationError, setValidationError] = useState("");
+  const [isCheckingURL, setIsCheckingURL] = useState(false);
 
   const isValidEthAddress = (address) => {
     try {
@@ -38,6 +42,7 @@ export default function RightSection({ testnet, id }) {
   getTwitterContentQuery += params.join("&");
   console.log(getTwitterContentQuery);
   const [twitterContent, setTwitterContent] = useState("");
+  const tweet = `https://twitter.com/intent/tweet?text=${twitterContent}`;
 
   async function getTwitterContent() {
     try {
@@ -45,6 +50,7 @@ export default function RightSection({ testnet, id }) {
       const records = response.data.result;
       console.log(response.data.message, "response");
       setTwitterContent(response.data.message);
+      return twitterContent;
       // let tempList = [];
       // records.forEach((record) => {
       //   tempList.push(record);
@@ -57,142 +63,199 @@ export default function RightSection({ testnet, id }) {
   }
   getTwitterContent();
 
+  let claimToken = `/jeecg-boot/faecut/claimToken?`;
+  let claimTokenParam = [];
+  if (address) {
+    claimTokenParam.push("address=" + address);
+  }
+  claimTokenParam.push("coinId=" + id);
+  claimTokenParam.push("twitterUrl=" + tweetURL);
+  claimToken += claimTokenParam.join("&");
+  const receiveToken = async () => {
+    try {
+      const response = await API.post(claimToken);
+      const records = response.data.result;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    const debouncedCheckURL = Debounce((url) => {
+      validateTweetURL(url);
+    }, 1000);
+
+    if (tweetURL) {
+      debouncedCheckURL(tweetURL);
+    } else {
+      setValidationError("");
+    }
+
+    return () => {
+      debouncedCheckURL.cancel();
+    };
+  }, [tweetURL]);
+  const handleInputChange = (event) => {
+    setTwitterURL(event.target.value);
+  };
+
+  const validateTweetURL = (url) => {
+    const tweetURLRegex =
+      /^https?:\/\/twitter\.com\/(?:#!\/)?(\w+)\/status(es)?\/(\d+)$/i;
+    if (url.match(tweetURLRegex)) {
+      setValidationError("");
+    } else {
+      setValidationError("Invalid tweet URL");
+    }
+  };
+
   return (
     <>
       <Box
         sx={{
-          // display: "flex",
-          flexDirection: "column",
-          flex: 1,
-          padding: "20px 10px",
-          background: "#fff",
-          borderRadius: "10px",
-          marginLeft: "20px",
-          // scale: "0.8",
-          boxShadow: "2px 2px 4px rgba(0,0,0,0.5)",
-          // height: "65vh",
-          // minHeight: "550px",
+          flex: 0.8,
         }}
       >
-        <Typography sx={{ fontWeight: "600", fontSize: "24px" }}>
-          {testnet} Faucet
-        </Typography>
-
-        <Box sx={{ marginTop: "30px", flex: "1" }}>
-          <Typography>
-            <b>Step1.</b>Put your wallet address
-          </Typography>
-          <TextField
-            sx={{
-              input: {
-                height: "0rem",
-              },
-              width: "100%",
-            }}
-            id="outlined-basic"
-            placeholder="0x...."
-            value={address}
-            onChange={handleChange}
-            Validate
-          />
-          {/* {twitterContent} */}
-          {/* {!isValid ? "Your address is invalid" : null} */}
-        </Box>
-
-        <Box sx={{ marginTop: "10px", flex: "1" }}>
-          <Typography>
-            <b>Step2.</b>Follow and tweet
-          </Typography>
-          <a href="https://twitter.com/FaucetDAO1">
-            <Box
-              sx={{
-                backgroundColor: "#ef7cb4",
-                display: "flex",
-                borderRadius: "5px",
-                lineHeight: "2rem",
-                color: "#fff",
-                cursor: "pointer",
-                width: "250px",
-              }}
-            >
-              <Box
-                sx={{
-                  backgroundColor: "#ef7cb4",
-                  borderRadius: "5px 0 0 5px",
-                  width: "35px",
-                  marginRight: "7%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <img src="/twitter.png" width="20px" height="20px" />
-              </Box>
-              Follow @FaucetDAO1
-            </Box>
-          </a>
-          <a href="https://twitter.com/intent/tweet?text=">
-            <Box
-              sx={{
-                backgroundColor: "#ef7cb4",
-                display: "flex",
-                borderRadius: "5px",
-                lineHeight: "2rem",
-                color: "#fff",
-                cursor: "pointer",
-                width: "100px",
-              }}
-              className={styles.twitter}
-            >
-              <Box
-                sx={{
-                  backgroundColor: "#ef7cb4",
-                  borderRadius: "5px 0 0 5px",
-                  width: "35px",
-                  // minWidth: "35px",
-                  marginRight: "7%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <img src="/twitter.png" width="20px" height="20px" />
-              </Box>
-              Tweet
-            </Box>
-          </a>
-        </Box>
-
-        <Box sx={{ marginTop: "10px", flex: "1" }}>
-          <Typography>
-            <b>Step3.</b>Put your tweet URL
-          </Typography>
-          <TextField
-            sx={{
-              input: {
-                height: "0rem",
-              },
-              width: "100%",
-            }}
-            id="outlined-basic"
-            placeholder="https://twitter.com/jack/status/20"
-          />
-        </Box>
-
-        <Box sx={{ marginTop: "10px", flex: "1" }}>
-          <Typography>
-            <b>Step4.</b>Solve captcha
-          </Typography>
-          <Captcha />
-        </Box>
-
-        <hr />
-        <Button
-          variant="contained"
-          sx={{ width: "100%", background: "#ef7cb4" }}
+        {" "}
+        <Box
+          sx={{
+            // display: "flex",
+            // flexDirection: "column",
+            padding: "20px 10px",
+            background: "#fff",
+            borderRadius: "10px",
+            marginLeft: "20px",
+            // scale: "0.8",
+            boxShadow: "2px 2px 4px rgba(0,0,0,0.5)",
+            // height: "65vh",
+            maxHeight: "520px",
+          }}
         >
-          Receive tokens
-        </Button>
+          <Typography sx={{ fontWeight: "600", fontSize: "24px" }}>
+            {testnet} Faucet
+          </Typography>
+
+          <Box sx={{ marginTop: "30px", flex: "1" }}>
+            <Typography>
+              <b>Step1.</b>Put your wallet address
+            </Typography>
+            <TextField
+              sx={{
+                input: {
+                  height: "0rem",
+                },
+                width: "100%",
+              }}
+              id="outlined-basic"
+              placeholder="0x...."
+              value={address}
+              onChange={handleChange}
+              Validate
+            />
+            {/* {twitterContent} */}
+            {/* {!isValid ? "Your address is invalid" : null} */}
+          </Box>
+
+          <Box sx={{ marginTop: "10px", flex: "1" }}>
+            <Typography>
+              <b>Step2.</b>Follow and tweet
+            </Typography>
+            <a href="https://twitter.com/FaucetDAO1">
+              <Box
+                sx={{
+                  backgroundColor: "#ef7cb4",
+                  display: "flex",
+                  borderRadius: "5px",
+                  lineHeight: "2rem",
+                  color: "#fff",
+                  cursor: "pointer",
+                  width: "250px",
+                }}
+              >
+                <Box
+                  sx={{
+                    backgroundColor: "#ef7cb4",
+                    borderRadius: "5px 0 0 5px",
+                    width: "35px",
+                    marginRight: "7%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <img src="/twitter.png" width="20px" height="20px" />
+                </Box>
+                Follow @FaucetDAO1
+              </Box>
+            </a>
+
+            <a href={twitterContent ? tweet : getTwitterContent()}>
+              <Box
+                sx={{
+                  backgroundColor: "#ef7cb4",
+                  display: "flex",
+                  borderRadius: "5px",
+                  lineHeight: "2rem",
+                  color: "#fff",
+                  cursor: "pointer",
+                  width: "100px",
+                }}
+                className={styles.twitter}
+              >
+                <Box
+                  sx={{
+                    backgroundColor: "#ef7cb4",
+                    borderRadius: "5px 0 0 5px",
+                    width: "35px",
+                    // minWidth: "35px",
+                    marginRight: "7%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <img src="/twitter.png" width="20px" height="20px" />
+                </Box>
+                Tweet
+              </Box>
+            </a>
+          </Box>
+
+          <Box sx={{ marginTop: "10px", flex: "1" }}>
+            <Typography>
+              <b>Step3.</b>Put your tweet URL
+            </Typography>
+            <TextField
+              sx={{
+                input: {
+                  height: "0rem",
+                },
+                width: "100%",
+              }}
+              value={tweetURL}
+              onChange={handleInputChange}
+              error={Boolean(validationError)}
+              required
+              placeholder="https://twitter.com/jack/status/20"
+            />
+          </Box>
+
+          <Box sx={{ marginTop: "10px", flex: "1" }}>
+            <Typography>
+              <b>Step4.</b>Solve captcha
+            </Typography>
+            <Captcha />
+          </Box>
+
+          <hr />
+          <Button
+            variant="contained"
+            sx={{ width: "100%", background: "#ef7cb4" }}
+            onClick={receiveToken()}
+          >
+            Receive tokens
+          </Button>
+        </Box>
       </Box>
     </>
   );

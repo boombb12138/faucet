@@ -6,6 +6,8 @@ import { Box, CssBaseline, Typography } from "@mui/material";
 import LeftSection from "./LeftSection";
 import Header from "./Header";
 import Footer from "./Footer";
+import styles from "../styles/Home.module.css";
+import Bubbles from "./bubbles";
 
 // eslint-disable-next-line react/prop-types
 export default function Layout({ children, title, description, bgcolor }) {
@@ -84,6 +86,7 @@ export default function Layout({ children, title, description, bgcolor }) {
             position: "relative",
             flexDirection: "column",
           }}
+          className="bubble-container"
         >
           <Header />
           {/* <Box
@@ -110,6 +113,7 @@ export default function Layout({ children, title, description, bgcolor }) {
             }}
           > */}
           <Footer />
+          {/* <Bubbles /> */}
           {/* </Box> */}
         </Box>
       </React.StrictMode>

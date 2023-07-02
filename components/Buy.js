@@ -24,7 +24,7 @@ export default function Buy() {
         >
           <Box>
             <Typography sx={{ fontWeight: "600", fontSize: "20px" }}>
-              You can buy test coins on{" "}
+              You can buy test coins at{" "}
               <a
                 href="https://www.faucetdao.shop/#/swap"
                 style={{ textDecoration: "underline", color: "#000" }}

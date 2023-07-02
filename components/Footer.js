@@ -12,7 +12,7 @@ export default function Footer() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          marginTop: "30px",
+          // marginTop: "30px",
         }}
       >
         {/* <Typography variant="h4"> */}

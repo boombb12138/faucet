@@ -56,17 +56,18 @@ export default function LeftSection() {
         sx={{
           display: "flex",
           flexDirection: "row",
-          maxWidth: "50%",
-          scale: "0.8",
-          transform: "translateX(50%)",
+          // maxWidth: "60%",
+          scale: "0.6",
+          // transform: "translateX(50%)",
           // height: "60vh",
           // marginTop: "10%",
+          marginX: "auto",
         }}
       >
         <Box
           sx={{
-            flex: 0.4,
-            minWidth: "250px",
+            flex: 0.3,
+            // minWidth: "250px",
           }}
         >
           <Box sx={{ display: "flex", flexDirection: "column" }}>
