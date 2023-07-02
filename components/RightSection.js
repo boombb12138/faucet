@@ -8,7 +8,7 @@ import Captcha from "./Captcha";
 import API from "../common/API";
 import Debounce from "../utils/Debounce";
 
-export default function RightSection({ testnet, id }) {
+export default function RightSection({ testnet, id = "1672125057490599938" }) {
   const [address, setAddress] = useState(" ");
   const [isValid, setIsValid] = useState(" ");
   const [tweetURL, setTwitterURL] = useState("");
@@ -74,6 +74,7 @@ export default function RightSection({ testnet, id }) {
   const receiveToken = async () => {
     try {
       const response = await API.post(claimToken);
+      console.log("claimToken");
       const records = response.data.result;
     } catch (error) {
       console.log(error);
@@ -189,7 +190,7 @@ export default function RightSection({ testnet, id }) {
               </Box>
             </a>
 
-            <a href={twitterContent ? tweet : getTwitterContent()}>
+            <a href={tweet}>
               <Box
                 sx={{
                   backgroundColor: "#ef7cb4",
@@ -251,7 +252,7 @@ export default function RightSection({ testnet, id }) {
           <Button
             variant="contained"
             sx={{ width: "100%", background: "#ef7cb4" }}
-            onClick={receiveToken()}
+            onClick={receiveToken}
           >
             Receive tokens
           </Button>
