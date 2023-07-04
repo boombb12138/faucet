@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_FAUCET_BACKEND_API,
+  baseURL: "/api/proxy",
   headers: {
     "Content-Type": "application/x-www-form-urlencoded",
   },
