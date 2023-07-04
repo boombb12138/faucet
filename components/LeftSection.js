@@ -53,15 +53,21 @@ export default function LeftSection() {
   return (
     <>
       <Box
+        height={{ lg: "800px", sm: "auto", xs: "380px" }}
         width={{ lg: "800px", sm: "auto", xs: "380px" }}
         sx={{
+          position: "absolute",
+          top: "50%",
+          right: "50%",
+          transform: "translate(50%,-50%)",
+          // transform: "translateY(-50%)",
           display: "grid",
           gap: 2,
           gridTemplateColumns: {
             xs: "1fr",
             sm: "1fr 2fr auto",
           },
-          marginX: "auto",
+          // marginX: "auto",
         }}
       >
         {/* <Box
@@ -83,7 +89,7 @@ export default function LeftSection() {
               background: "#fff",
               borderRadius: "10px",
               padding: "10px 0px",
-              flex: 1,
+              // flex: 1,
             }}
           >
             <Typography
@@ -104,6 +110,7 @@ export default function LeftSection() {
                   "& .MuiTabs-indicator": {
                     width: "0 !important",
                   },
+                  "& .MuiButtonBase": {},
                 }}
               >
                 {coins.map((coin, index) => {
@@ -152,7 +159,9 @@ export default function LeftSection() {
                         color: activeTab === index ? "#fff" : "#666666",
                         textTransform: "capitalize",
                         textAlign: "left",
+
                         "& .MuiButtonBase-root": {
+                          padding: 0,
                           maxWidth: "100% !important",
                         },
                         "& .Mui-selected": {

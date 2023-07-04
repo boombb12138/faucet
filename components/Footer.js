@@ -13,9 +13,12 @@ export default function Footer() {
           alignItems: "center",
           justifyContent: "center",
           // marginTop: "30px",
+          position: "absolute",
+          bottom: "5%",
+          right: "50%",
+          transform: "translate(50%,-50%)",
         }}
       >
-        {/* <Typography variant="h4"> */}
         <b style={{ color: "#ef7cb4", fontSize: "30px" }}>
           Buy multiple test coins at{" "}
           <a
@@ -25,7 +28,6 @@ export default function Footer() {
             www.faucetdao.shop.
           </a>
         </b>
-        {/* </Typography> */}
       </Box>
       <Contact />
     </>

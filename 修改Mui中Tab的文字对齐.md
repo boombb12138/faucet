@@ -61,3 +61,14 @@ env中的base URL 为http不是https
         <b>regular transfer:1ETH =$0.25</b>
 ```
 
+
+
+居中
+
+```
+ position: "absolute",
+          top: "50%",
+          right: "50%",
+          transform: "translate(50%,-50%)",
+```
+

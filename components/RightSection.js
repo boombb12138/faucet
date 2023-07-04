@@ -115,147 +115,153 @@ export default function RightSection({ testnet, id = "1672125057490599938" }) {
       <Box
         sx={{
           flex: 0.8,
+          maxWidth: "auto", // Limit the maximum width of the box
+          // maxHeight: "900px",
         }}
       >
         {" "}
         <Box
           sx={{
-            // display: "flex",
-            // flexDirection: "column",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-start",
+            alignItems: "flex-start",
             padding: "20px 10px",
             background: "#fff",
             borderRadius: "10px",
             marginLeft: "20px",
             // scale: "0.8",
             boxShadow: "2px 2px 4px rgba(0,0,0,0.5)",
-            // height: "65vh",
-            maxHeight: "520px",
+            width: "100%",
+            height: "auto",
           }}
         >
           <Typography sx={{ fontWeight: "600", fontSize: "24px" }}>
             {testnet} Faucet
           </Typography>
 
-          <Box sx={{ marginTop: "30px", flex: "1" }}>
-            <Typography>
-              <b>Step1.</b>Put your wallet address
-            </Typography>
-            <TextField
-              sx={{
-                input: {
-                  height: "0rem",
-                },
-                width: "100%",
-              }}
-              id="outlined-basic"
-              placeholder="0x...."
-              value={address}
-              onChange={handleChange}
-              Validate
-            />
-            {/* {twitterContent} */}
-            {/* {!isValid ? "Your address is invalid" : null} */}
-          </Box>
-
-          <Box sx={{ marginTop: "10px", flex: "1" }}>
-            <Typography>
-              <b>Step2.</b>Follow and tweet
-            </Typography>
-            <a href="https://twitter.com/FaucetDAO1">
-              <Box
+          <Box flex="1" width="100%">
+            <Box sx={{ marginTop: "30px", width: "100%" }}>
+              <Typography>
+                <b>Step1.</b>Put your wallet address
+              </Typography>
+              <TextField
                 sx={{
-                  backgroundColor: "#ef7cb4",
-                  display: "flex",
-                  borderRadius: "5px",
-                  lineHeight: "2rem",
-                  color: "#fff",
-                  cursor: "pointer",
-                  width: "250px",
+                  input: {
+                    height: "0rem",
+                  },
+                  width: "100%",
                 }}
-              >
+                id="outlined-basic"
+                placeholder="0x...."
+                value={address}
+                onChange={handleChange}
+                Validate
+              />
+              {/* {twitterContent} */}
+              {/* {!isValid ? "Your address is invalid" : null} */}
+            </Box>
+
+            <Box sx={{ marginTop: "10px" }}>
+              <Typography>
+                <b>Step2.</b>Follow and tweet
+              </Typography>
+              <a href="https://twitter.com/FaucetDAO1">
                 <Box
                   sx={{
                     backgroundColor: "#ef7cb4",
-                    borderRadius: "5px 0 0 5px",
-                    width: "35px",
-                    marginRight: "7%",
                     display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
+                    borderRadius: "5px",
+                    lineHeight: "2rem",
+                    color: "#fff",
+                    cursor: "pointer",
+                    width: "250px",
                   }}
                 >
-                  <img src="/twitter.png" width="20px" height="20px" />
+                  <Box
+                    sx={{
+                      backgroundColor: "#ef7cb4",
+                      borderRadius: "5px 0 0 5px",
+                      width: "35px",
+                      marginRight: "7%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <img src="/twitter.png" width="20px" height="20px" />
+                  </Box>
+                  Follow @FaucetDAO1
                 </Box>
-                Follow @FaucetDAO1
-              </Box>
-            </a>
+              </a>
 
-            <a href={tweet}>
-              <Box
-                sx={{
-                  backgroundColor: "#ef7cb4",
-                  display: "flex",
-                  borderRadius: "5px",
-                  lineHeight: "2rem",
-                  color: "#fff",
-                  cursor: "pointer",
-                  width: "100px",
-                }}
-                className={styles.twitter}
-              >
+              <a href={tweet}>
                 <Box
                   sx={{
                     backgroundColor: "#ef7cb4",
-                    borderRadius: "5px 0 0 5px",
-                    width: "35px",
-                    // minWidth: "35px",
-                    marginRight: "7%",
                     display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
+                    borderRadius: "5px",
+                    lineHeight: "2rem",
+                    color: "#fff",
+                    cursor: "pointer",
+                    width: "100px",
                   }}
+                  className={styles.twitter}
                 >
-                  <img src="/twitter.png" width="20px" height="20px" />
+                  <Box
+                    sx={{
+                      backgroundColor: "#ef7cb4",
+                      borderRadius: "5px 0 0 5px",
+                      width: "35px",
+                      // minWidth: "35px",
+                      marginRight: "7%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <img src="/twitter.png" width="20px" height="20px" />
+                  </Box>
+                  Tweet
                 </Box>
-                Tweet
-              </Box>
-            </a>
-          </Box>
+              </a>
+            </Box>
 
-          <Box sx={{ marginTop: "10px", flex: "1" }}>
-            <Typography>
-              <b>Step3.</b>Put your tweet URL
-            </Typography>
-            <TextField
-              sx={{
-                input: {
-                  height: "0rem",
-                },
-                width: "100%",
-              }}
-              value={tweetURL}
-              onChange={handleInputChange}
-              error={Boolean(validationError)}
-              required
-              placeholder="https://twitter.com/jack/status/20"
-            />
-          </Box>
+            <Box sx={{ marginTop: "10px", width: "100%" }}>
+              <Typography>
+                <b>Step3.</b>Put your tweet URL
+              </Typography>
+              <TextField
+                sx={{
+                  input: {
+                    height: "0rem",
+                  },
+                  width: "100%",
+                }}
+                value={tweetURL}
+                onChange={handleInputChange}
+                error={Boolean(validationError)}
+                required
+                placeholder="https://twitter.com/jack/status/20"
+              />
+            </Box>
 
-          <Box sx={{ marginTop: "10px", flex: "1" }}>
-            <Typography>
-              <b>Step4.</b>Solve captcha
-            </Typography>
-            <Captcha />
-          </Box>
+            <Box sx={{ marginTop: "10px" }}>
+              <Typography>
+                <b>Step4.</b>Solve captcha
+              </Typography>
+              <Captcha />
+            </Box>
 
-          <hr />
-          <Button
-            variant="contained"
-            sx={{ width: "100%", background: "#ef7cb4" }}
-            onClick={receiveToken}
-          >
-            Receive tokens
-          </Button>
+            <hr />
+            <Button
+              variant="contained"
+              sx={{ width: "100%", background: "#ef7cb4" }}
+              onClick={receiveToken}
+            >
+              Receive tokens
+            </Button>
+          </Box>
         </Box>
       </Box>
     </>

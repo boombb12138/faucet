@@ -36,6 +36,10 @@ export default function Contact() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          position: "absolute",
+          bottom: "0%",
+          transform: "translate(50%,-50%)",
+          right: "50%",
         }}
       >
         <Link sx={{ marginLeft: "15px" }} href={contact[1]}>
