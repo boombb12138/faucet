@@ -75,8 +75,13 @@ export default function RightSection({ testnet, id = "1672125057490599938" }) {
     try {
       const response = await API.post(claimToken);
       console.log("claimToken");
-      const records = response.data.result;
-      console.log("records", records);
+      const success = response.data.success;
+      console.log("success", success);
+      if (success) {
+        alert("SUCCESS");
+      } else {
+        alert(response.data.message);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -167,7 +172,7 @@ export default function RightSection({ testnet, id = "1672125057490599938" }) {
               <Typography>
                 <b>Step2.</b>Follow and tweet
               </Typography>
-              <a href="https://twitter.com/FaucetDAO1">
+              <a href="https://twitter.com/FaucetDAO1" target="_blank">
                 <Box
                   sx={{
                     backgroundColor: "#ef7cb4",
@@ -196,7 +201,7 @@ export default function RightSection({ testnet, id = "1672125057490599938" }) {
                 </Box>
               </a>
 
-              <a href={tweet}>
+              <a href={tweet} target="_blank">
                 <Box
                   sx={{
                     backgroundColor: "#ef7cb4",
