@@ -76,6 +76,7 @@ export default function RightSection({ testnet, id = "1672125057490599938" }) {
       const response = await API.post(claimToken);
       console.log("claimToken");
       const records = response.data.result;
+      console.log("records", records);
     } catch (error) {
       console.log(error);
     }
