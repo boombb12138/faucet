@@ -172,7 +172,11 @@ export default function RightSection({ testnet, id = "1672125057490599938" }) {
               <Typography>
                 <b>Step2.</b>Follow and tweet
               </Typography>
-              <a href="https://twitter.com/FaucetDAO1" target="_blank">
+              <a
+                href="https://twitter.com/FaucetDAO1"
+                target="_blank"
+                style="display:inline-block,width:100px"
+              >
                 <Box
                   sx={{
                     backgroundColor: "#ef7cb4",
@@ -201,7 +205,11 @@ export default function RightSection({ testnet, id = "1672125057490599938" }) {
                 </Box>
               </a>
 
-              <a href={tweet} target="_blank">
+              <a
+                href={tweet}
+                target="_blank"
+                style="display:inline-block,width:100px"
+              >
                 <Box
                   sx={{
                     backgroundColor: "#ef7cb4",
