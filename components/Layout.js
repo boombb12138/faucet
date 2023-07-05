@@ -36,6 +36,10 @@ export default function Layout({ children, title, description, bgcolor }) {
         <link rel="icon" href="/icons/logo.png" />
         <title>{title || "FaucetDAO"}</title>
         <meta
+          http-equiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        ></meta>
+        <meta
           name="description"
           content="FrenArt - From Friendship Bracelet Holder to FrenArt DAO. From one Friendship bracelet to one FrenArt Governance NFT."
         />
