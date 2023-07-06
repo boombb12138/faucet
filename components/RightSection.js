@@ -40,28 +40,26 @@ export default function RightSection({ testnet, id = "1672125057490599938" }) {
   }
   params.push("coinId=" + id);
   getTwitterContentQuery += params.join("&");
-  console.log(getTwitterContentQuery);
   const [twitterContent, setTwitterContent] = useState("");
-  const tweet = `https://twitter.com/intent/tweet?text=${twitterContent}`;
+  // console.log(twitterContent, "twitterContent");
+  // encode the url to ensure that the special characters will not loss
+  const encodedTwitterContent = encodeURIComponent(twitterContent);
+  const tweet = `https://twitter.com/intent/tweet?text=${encodedTwitterContent}`;
 
   async function getTwitterContent() {
     try {
       const response = await API.get(getTwitterContentQuery);
-      const records = response.data.result;
       console.log(response.data.message, "response");
       setTwitterContent(response.data.message);
       return twitterContent;
-      // let tempList = [];
-      // records.forEach((record) => {
-      //   tempList.push(record);
-      // });
-
-      // setCoins([...tempList]);
     } catch (error) {
       console.error(error);
     }
   }
-  getTwitterContent();
+
+  useEffect(() => {
+    getTwitterContent();
+  }, [address, id]);
 
   let claimToken = `/jeecg-boot/faecut/claimToken?`;
   let claimTokenParam = [];
@@ -175,7 +173,7 @@ export default function RightSection({ testnet, id = "1672125057490599938" }) {
               <a
                 href="https://twitter.com/FaucetDAO1"
                 target="_blank"
-                style="display:inline-block,width:100px"
+                style={{ width: "50%" }}
               >
                 <Box
                   sx={{
@@ -185,7 +183,7 @@ export default function RightSection({ testnet, id = "1672125057490599938" }) {
                     lineHeight: "2rem",
                     color: "#fff",
                     cursor: "pointer",
-                    width: "250px",
+                    width: "50%",
                   }}
                 >
                   <Box
@@ -208,7 +206,7 @@ export default function RightSection({ testnet, id = "1672125057490599938" }) {
               <a
                 href={tweet}
                 target="_blank"
-                style="display:inline-block,width:100px"
+                style={{ display: "inline-block", width: "100px" }}
               >
                 <Box
                   sx={{

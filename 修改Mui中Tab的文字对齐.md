@@ -72,3 +72,13 @@ env中的base URL 为http不是https
           transform: "translate(50%,-50%)",
 ```
 
+
+
+确保不会遗漏url中的特殊字符需要encode
+
+```js
+// encode the url to ensure that the special characters will not loss
+  const encodedTwitterContent = encodeURIComponent(twitterContent);
+  const tweet = `https://twitter.com/intent/tweet?text=${encodedTwitterContent}`;
+```
+
