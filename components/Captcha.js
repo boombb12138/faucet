@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import API from "../common/API";
 
-const MyComponent = () => {
+const MyComponent = ({ setToken }) => {
   const recaptchaRef = useRef(null);
   let checkRecaptcha = `/jeecg-boot/faecut/checkRecaptcha?`;
 
@@ -11,10 +11,10 @@ const MyComponent = () => {
     console.log("reCAPTCHA响应：", response);
     // 在这里执行验证通过后的操作
     // /jeecg-boot/faecut/checkRecaptcha
-
     checkRecaptcha += response;
     try {
       const response = await API.post(checkRecaptcha);
+      setToken(response);
       const records = response.data.result;
     } catch (error) {
       console.log(error);

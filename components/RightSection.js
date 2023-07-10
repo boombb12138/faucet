@@ -14,6 +14,7 @@ export default function RightSection({ testnet, id = "1672125057490599938" }) {
   const [tweetURL, setTwitterURL] = useState("");
   const [validationError, setValidationError] = useState("");
   const [isCheckingURL, setIsCheckingURL] = useState(false);
+  const [token, setToken] = useState("");
 
   const isValidEthAddress = (address) => {
     try {
@@ -43,8 +44,8 @@ export default function RightSection({ testnet, id = "1672125057490599938" }) {
   const [twitterContent, setTwitterContent] = useState("");
   // console.log(twitterContent, "twitterContent");
   // encode the url to ensure that the special characters will not loss
-  const encodedTwitterContent = encodeURIComponent(twitterContent);
-  const tweet = `https://twitter.com/intent/tweet?text=${encodedTwitterContent}`;
+  // const encodedTwitterContent = encodeURIComponent(twitterContent);
+  const tweet = `https://twitter.com/intent/tweet?text=${twitterContent}`;
 
   async function getTwitterContent() {
     try {
@@ -67,6 +68,7 @@ export default function RightSection({ testnet, id = "1672125057490599938" }) {
     claimTokenParam.push("address=" + address);
   }
   claimTokenParam.push("coinId=" + id);
+  claimTokenParam.push("token=" + token);
   claimTokenParam.push("twitterUrl=" + tweetURL);
   claimToken += claimTokenParam.join("&");
   const receiveToken = async () => {
@@ -173,7 +175,10 @@ export default function RightSection({ testnet, id = "1672125057490599938" }) {
               <a
                 href="https://twitter.com/FaucetDAO1"
                 target="_blank"
-                style={{ width: "50%" }}
+                style={{
+                  width: "250px",
+                  display: "inline-block",
+                }}
               >
                 <Box
                   sx={{
@@ -183,7 +188,7 @@ export default function RightSection({ testnet, id = "1672125057490599938" }) {
                     lineHeight: "2rem",
                     color: "#fff",
                     cursor: "pointer",
-                    width: "50%",
+                    // width: "50%",
                   }}
                 >
                   <Box
@@ -202,11 +207,15 @@ export default function RightSection({ testnet, id = "1672125057490599938" }) {
                   Follow @FaucetDAO1
                 </Box>
               </a>
-
+              <div></div>
               <a
                 href={tweet}
                 target="_blank"
-                style={{ display: "inline-block", width: "100px" }}
+                style={{
+                  display: "inline-block",
+                  width: "100px",
+                  clear: "both",
+                }}
               >
                 <Box
                   sx={{
@@ -262,7 +271,7 @@ export default function RightSection({ testnet, id = "1672125057490599938" }) {
               <Typography>
                 <b>Step4.</b>Solve captcha
               </Typography>
-              <Captcha />
+              <Captcha setToken={setToken} />
             </Box>
 
             <hr />
