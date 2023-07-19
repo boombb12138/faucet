@@ -13,9 +13,9 @@ const MyComponent = ({ setToken }) => {
 
     try {
       checkRecaptcha += response;
-      const response = await API.post(checkRecaptcha);
-      const records = response.data.result;
-      console.log("reCAPTCHA响应：", response);
+      const { data } = await API.post(checkRecaptcha);
+      const records = data.result;
+      console.log("reCAPTCHA响应：", records);
       setToken(response);
     } catch (error) {
       console.log(error);
