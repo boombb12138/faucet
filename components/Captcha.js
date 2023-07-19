@@ -10,7 +10,7 @@ const MyComponent = ({ setToken }) => {
   const onRecaptchaVerify = async (response) => {
     // 在这里执行验证通过后的操作
     // /jeecg-boot/faecut/checkRecaptcha
-    console.log("onRecaptchaVerify");
+    console.log("onRecaptchaVerify", response);
 
     try {
       checkRecaptcha += response;
