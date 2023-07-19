@@ -21,20 +21,14 @@ export default function LeftSection() {
       try {
         const response = await API.get(getAllCoinTypesQuery);
         const records = response.data.result;
-        console.log(records, "records1702");
-
-        let tempList = [];
-        records.forEach((record) => {
-          tempList.push(record);
-        });
-
-        setCoins([...tempList]);
+        setCoins(records);
       } catch (error) {
         console.error(error);
       }
     }
+
     getAllCoinTypes();
-  }, [coins]);
+  }, []);
 
   const handleTabClick = (index, coin) => {
     setActiveTab(index);

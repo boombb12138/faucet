@@ -26,7 +26,7 @@ export default function Contact() {
       }
     }
     fetchData();
-  }, [contact]);
+  }, []);
 
   return (
     <>

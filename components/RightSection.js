@@ -9,7 +9,7 @@ import API from "../common/API";
 import Debounce from "../utils/Debounce";
 
 export default function RightSection({ testnet, id = "1672125057490599938" }) {
-  const [address, setAddress] = useState(" ");
+  const [address, setAddress] = useState("");
   const [isValid, setIsValid] = useState(" ");
   const [tweetURL, setTwitterURL] = useState("");
   const [validationError, setValidationError] = useState("");
@@ -158,14 +158,11 @@ export default function RightSection({ testnet, id = "1672125057490599938" }) {
                   },
                   width: "100%",
                 }}
-                id="outlined-basic"
+                // id="outlined-basic"
                 placeholder="0x...."
                 value={address}
                 onChange={handleChange}
-                Validate
               />
-              {/* {twitterContent} */}
-              {/* {!isValid ? "Your address is invalid" : null} */}
             </Box>
 
             <Box sx={{ marginTop: "10px" }}>

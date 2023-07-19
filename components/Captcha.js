@@ -9,16 +9,16 @@ const MyComponent = ({ setToken }) => {
 
   const onRecaptchaVerify = async (response) => {
     console.log("reCAPTCHA响应：", response);
+    setToken(response);
     // 在这里执行验证通过后的操作
     // /jeecg-boot/faecut/checkRecaptcha
-    checkRecaptcha += response;
-    try {
-      const response = await API.post(checkRecaptcha);
-      setToken(response);
-      const records = response.data.result;
-    } catch (error) {
-      console.log(error);
-    }
+    // checkRecaptcha += response;
+    // try {
+    //   const response = await API.post(checkRecaptcha);
+    //   const records = response.data.result;
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   const submitForm = () => {
