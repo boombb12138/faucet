@@ -10,6 +10,7 @@ const MyComponent = ({ setToken }) => {
   const onRecaptchaVerify = async (response) => {
     // 在这里执行验证通过后的操作
     // /jeecg-boot/faecut/checkRecaptcha
+    console.log("onRecaptchaVerify");
 
     try {
       checkRecaptcha += response;
@@ -32,7 +33,7 @@ const MyComponent = ({ setToken }) => {
         ref={recaptchaRef}
         // size="invisible"
         sitekey="6Ld1izcnAAAAAK5N_STEhjMZKEI5ITlX9b5KSVQf"
-        onChange={onRecaptchaVerify()}
+        onChange={onRecaptchaVerify}
       />
 
       {/* <button onClick={submitForm}>Submit</button> */}
