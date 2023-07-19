@@ -8,17 +8,18 @@ const MyComponent = ({ setToken }) => {
   let checkRecaptcha = `/jeecg-boot/faecut/checkRecaptcha?`;
 
   const onRecaptchaVerify = async (response) => {
-    console.log("reCAPTCHA响应：", response);
-    setToken(response);
     // 在这里执行验证通过后的操作
     // /jeecg-boot/faecut/checkRecaptcha
-    // checkRecaptcha += response;
-    // try {
-    //   const response = await API.post(checkRecaptcha);
-    //   const records = response.data.result;
-    // } catch (error) {
-    //   console.log(error);
-    // }
+
+    try {
+      checkRecaptcha += response;
+      const response = await API.post(checkRecaptcha);
+      const records = response.data.result;
+      console.log("reCAPTCHA响应：", response);
+      setToken(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const submitForm = () => {
@@ -30,7 +31,7 @@ const MyComponent = ({ setToken }) => {
       <ReCAPTCHA
         ref={recaptchaRef}
         // size="invisible"
-        sitekey="6LcyhMEmAAAAADQz87h6JYJiR3-bw6aTsKGtD9TC"
+        sitekey="6Ld1izcnAAAAAK5N_STEhjMZKEI5ITlX9b5KSVQf"
         onChange={onRecaptchaVerify()}
       />
 

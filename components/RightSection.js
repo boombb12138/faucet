@@ -73,8 +73,9 @@ export default function RightSection({ testnet, id = "1672125057490599938" }) {
   claimToken += claimTokenParam.join("&");
   const receiveToken = async () => {
     try {
+      console.log("claimToken", claimToken);
+
       const response = await API.post(claimToken);
-      console.log("claimToken");
       const success = response.data.success;
       console.log("success", success);
       if (success) {
